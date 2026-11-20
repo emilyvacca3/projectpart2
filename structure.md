@@ -1,35 +1,66 @@
+# Structure Rules
+
 In this repository, we will focus on keeping a better file structure. Place your file paths and intent here to inform others of locations.
-## Dont forget to mark test files you don't want to share with .gitignore.
-## Keep all files for project 5 part 2 in this repository, even if you don't want to share it.
-## Always open the entire repository with vscode instead of the files you work on.
 
+Each folder and file should be seperated by goal, and be named accordingly.
+Use camel case for file and folder names unless a local style guide overwrites it.
 
-### readme.md -> Explainers for us and grading
-### structure.md -> An aid to file structure management, to keep the repo clean and useful.
-\\
-\\
-### application -> 
-The actual project. Programs, reports and everything we will be graded on is here.
+When working on this project, keep the entire folder open so that you can find your way through, and always check if relevant work has already been made before you make it again.
 
-#### data ->
-A folder containing input data or external research.
+In any given folder, place everything as follows (mind the (alphabetical) order):
 
-#### programs -> 
-Software created for this program. It is fine to add subfolders or files from data, but keep it clean and organised.
-Keep files per goal/function, not per person.
+1. Oneline (Folder) docstring
+2. Detailed .md primer (if relevant)
+3. files.extension
+   1. Oneline (File) docstring.
+4. subfolders
 
-#### reports ->
-Conclusions we have made, data we have cleaned, processed or otherwise are done with. Any result goes here, as long as we (may) use it in the final report.
-\\
-\\
-### legal -> 
-Everything necessary for the process. Reports, contracts and the like live here.
+## File structure:
 
-#### meetings ->
-Every meeting slide and meeting notes (if we have them.)
+- projectpart2
+  - .gitattributes
+  - .gitignore
+  - readme.md
+    - Primers for the grader and teachers. Assume that the reader is unfamiliar with our work.
+  - structure.md
+    - A detailed version of the repositories file structure. If you don't know where to find a file or function, or don't know what a file does, check this file first.
+  - style.md
+    - A collection of style guides for consistency. If you do not follow this file, Casper will complain at you.
+  - application/
+    - Group Product
+    - data/
 
-#### contract.docx ->
-Cooperation contract
+      - Second or Third party data and research papers.
+    - programs/
 
-#### plan.md ->
-The action plan, week by week, person by person. Dirived from the meeting (notes) and agreed upon by all.
+      - Code
+    - reports/
+
+      - Results and deliverables
+      - 2-researchquestions.pdf
+
+        - LaTeX writer test -Remove?
+      - 2-researchquestions.tex
+
+        - LaTeX test writer -Remove or move to finalreport/
+      - finalreport/
+
+        - Final report in LaTeX, devided per chapter.
+        - structuretex/
+          - LaTex files for the introductory chapter structure.tex
+          - structure.tex
+            - A test and introduction to the final report.
+  - Legal/
+    - Group process
+    - AIdoc.xlsx
+      - Documentation of AI use. **Every time AI is used, immediatly report it here.**
+    - CoopContractG1P5_2.docx
+      - Cooperation Contract. **DO NOT FORGET TO SIGN.**
+    - plan.md
+      - Past, present and future action plan based of weekly meetings.
+    - Meetings/
+      - Archive of past meetings.
+      - Meeting Week1.pptx
+        - dummy powerpoint to establish naming convention.
+      - Notes Week1.txt
+        - See previous file. Not strict or
