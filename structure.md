@@ -46,7 +46,7 @@ In any given folder, place everything as follows (mind the (alphabetical) order)
       - finalreport/
 
         - Final report in LaTeX, devided per chapter.
-        - structuretex/
+        - [s]()structuretex/
           - LaTex files for the introductory chapter structure.tex
           - structure.tex
             - A test and introduction to the final report.

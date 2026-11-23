@@ -17,3 +17,9 @@ All -> Think of learning goals
 	One Hard and one Soft Skill /
 		Hard skill == Matlab, Latex, Data Cleaning, etc.
 		Soft == Design, organisation, process, etc.
+
+
+
+Idea:
+	Hightmap: Use color to indicate energy use/m
+	Use opacity to indicate efficiency% (rendiment).
