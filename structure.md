@@ -30,10 +30,12 @@ In any given folder, place everything as follows (mind the (alphabetical) order)
     - Group Product
     - data/
 
-      - Second or Third party data and research papers.
+      - Second or Third party data and research papers
     - programs/
 
       - Code
+      - busstopfinder.m
+        - A program that finds the bus stops and identifies bus behavoir around it.
     - reports/
 
       - Results and deliverables
@@ -63,4 +65,10 @@ In any given folder, place everything as follows (mind the (alphabetical) order)
       - Meeting Week1.pptx
         - dummy powerpoint to establish naming convention.
       - Notes Week1.txt
-        - See previous file. Not strict or
+        - See previous file. Not strict or manditory.
+    - Style/
+      - Archive of style guides
+      - MatlabStyle2 book.pdf
+        - MATLAB Style Guide.
+      - PEP 8 - Style Guide Python.htm
+        - Python style guide website copy.

@@ -13,7 +13,7 @@ When you want to push, add as many commit messages as possible;
 
 If two or more files have been edited independantly of each other (e.g. Added additional style guide to style.md and added a learning goal to the cooperation contract.) Stage the changes, add commit messages, and commit them seperately of each other. If two or more files have been edited dependantly of each other (e.g. A MATLAB function was moved from one file to another; Fixed spelling errors across multiple files.), you must stage and commit them together.
 
-Keep every file inside the repository. 
+Keep every file inside the repository.
 
 Add a file to .gitignore if:
 
@@ -100,4 +100,4 @@ If two or more lines of code are necessary for one "thing", add a comment. If 4-
 
 ## .m
 
->  There is currently no MATLAB syntax guide. Keep it similair
+Use Matlab Style guide by Richard Johnson as found in "Legal/styles/MatlabStyle2 book.pd" to the best of your ability.
