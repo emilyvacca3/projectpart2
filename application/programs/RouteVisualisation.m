@@ -1,11 +1,14 @@
 clear all; close all; clc
 
-matFile = "data_project_05.mat";
+dataFolder = fullfile('..',"data");
+matFile    = fullfile(dataFolder, "data_project_05.mat");
+xlsxFile   = fullfile(dataFolder, "data_project_05.xlsx"); 
+
 
 if isfile(matFile)
     load(matFile,"data"); % load the matfile into a variable called data
 else
-    data = readtable("data_project_05.xlsx");
+    data = readtable(xlsxFile);
     save(matFile, "data"); % cache if we don't have the matfile
 end 
 
