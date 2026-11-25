@@ -2,15 +2,26 @@
 
 > Casper
 
-Create a bus stop mapping, including:
-	When the bus is at the stop
-	If the bus stopped at the stop
-	If a bus stop is due to traffic or a planned stop
-	If more people entered the bus than left the bus.
+- Create a bus stop mapping, including:
+  - When the bus is at the stop
+  - If the bus stopped at the stop
+  - If a bus stop is due to traffic or a planned stop
+  - If more people entered the bus than left the bus.
+- Reorganize and update file structure with fitting names and camel case.
 
-Ginas
+> Ginas
 
-Create Bus Route Identification:
+- Create Bus Route Identification:
+  - Indiciate the direction of the bus (Combined with time relativety?)
+    - Optional Ideas:
+    - Indicate the relative time of the bus (early to late; color mapping?)
+    - Incorporate multiple lines over the same road (dotted with color mapping?)
+
+> Emily
+
+- Start on introduction and research surrounding subquestions:
+  - Find a research path or direction for research questions
+  - Finish a first draft for non-research parts.
 
 #### Week 1
 

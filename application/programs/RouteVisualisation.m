@@ -1,8 +1,10 @@
 clear all; close all; clc
 
-dataFolder = fullfile('..',"data");
-matFile    = fullfile(dataFolder, "data_project_05.mat");
-xlsxFile   = fullfile(dataFolder, "data_project_05.xlsx"); 
+disp(pwd)
+
+scriptDir = fileparts(mfilename('fullpath'));
+xlsxFile  = fullfile(scriptDir, '..', 'data', 'data_project_05.xlsx');
+matFile   = fullfile(scriptDir, '..', 'data', 'data_project_05.mat');
 
 
 if isfile(matFile)
