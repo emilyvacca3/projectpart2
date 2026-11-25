@@ -52,7 +52,7 @@ arrowStep = 600;
 
 arrowLocations = 1:arrowStep:height(data)-1;
 
-function plot_arrow_geoplot(begin_point,end_point,varargin)
+function plot_arrow_geoplot(begin_point,end_point,varargin) % source: [1] 
 
 if ~(isvector(begin_point) && length(begin_point)==2)
     error('begin_point is not a 2D vector') 
@@ -113,7 +113,6 @@ pointa = [latitude(1) longitude(1)]
 pointb = [latitude(6000) longitude(6000)]
 plot_arrow_geoplot(pointa,pointb,'color','r',"LineWidth",3)
 hold on 
-
 geoplot(latitude,longitude,"k-","LineWidth",2,"DisplayName","Bus route")
 hold on 
 geoscatter(stopLat,stopLon,"filled","red")
