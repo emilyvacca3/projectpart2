@@ -14,22 +14,44 @@
 \section{Main Research question}
 A potential main research question could be \\
 \begin{quote}
-    How can we calculate $c_r$ and $c_s$ in the most efficent way possible? \\
+    What distance can we depend on a bus to cover on a single charge depending on known and unknown conditions? \\
 \end{quote}
+
+The subquestions are;
 \begin{quote}
-how accurately can the aerodynamic drag coefficient (c_d) and rolling resistance coefficient (c_r) be calculated for a given vehicle using computational methods, and what are the most effective techniques to achieve this? \\
+    What are the known and unknown conditions that affect the distance a bus can cover on a single charge? \\
 \end{quote}
+
+\begin{paragraph}
+    To answer this question, we first investigate what are the conditions that affect the distance a bus can cover on a single charge. We then investigate how these conditions can be measured and quantified. Finally, we investigate how these conditions can be used to predict the distance a bus can cover on a single charge.
+    According to the slides, the conditions that affect the distance a bus can cover on a single charge are: \\
+    \begin{itemize}
+        \item The bus's aerodynamic drag coefficient
+        \item The bus's rolling resistance coefficient
+        \item The bus's motor efficiency
+        \item The bus's battery capacity
+        \item The bus's payload
+        \item The bus's speed
+        \item The bus's acceleration
+        \item The bus's deceleration
+        \item The bus's route
+        \item The bus's elevation profile
+        \item The bus's weather conditions
+    \end{itemize} \\
+    To investigate what is known and unknown, we first look at the initial provided data. In the initial data, the payload of the passengers is explicitly provided. The wind speed and the wind direction in reference to the bus's direction. To find further conditions we use the specs of the bus from LECTURA Specs. The bus's weight without passengers is 
+    29,000 kg. The engine is 1DB2022 with max power of 240 kW. The total battery packs energy level is 310 kWh.
 \begin{quote}
-    How Does CAN data cleaning, motor efficiency mapping (n(n,T)) and elevation outlier filtering affect the reliability of estimating rolling resistance and aerodynamic drag coefficients for an electric city bus? \\
+what are the minimum significant values we can use to calculate the aerodynamic drag coefficient and rolling resistance coefficient without losing noticeable accuracy? \\
+\end{quote}
+
+% How Does CAN data cleaning, motor efficiency mapping (n(n,T)) and elevation outlier filtering affect the reliability of estimating rolling resistance and aerodynamic drag coefficients for an electric city bus? \\
+
+\begin{quote}
+    What bus frequency is the most energy efficient for a given route and number of passengers in demand?
 \end{quote}
 \begin{thebibliography}{9}
-    \bibitem{knuth}
-    Donald E. Knuth.
-    \textit{The \TeX book}. Addison-Wesley, 1984.
-
-    \bibitem{lamport}
-    Leslie Lamport.
-    \textit{LaTeX: A Document Preparation System}. Addison-Wesley, 1994.
+    \bibitem{LECTURA}
+    LECTURA Specs. (n.d.). VDL Buses Citea SLFA-181 (2019 - 2026) bus specs & dimensions. Retrieved November 25, 2026, from https://www.lectura-specs.com/en/model/transportation/bus-and-coaches-intercity-buses-vdl-buses/citea-slfa-181-11732895
 \end{thebibliography}
 
 \end{document}
