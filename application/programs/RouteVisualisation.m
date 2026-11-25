@@ -110,9 +110,9 @@ geoplot([begin_point(1) end_point(1)],[begin_point(2) end_point(2)],... % line
 end
 
 pointa = [latitude(1) longitude(1)]
-pointb = [latitude(600) longitude(600)]
-plot_arrow_geoplot(pointa,pointb,'color','k')
-
+pointb = [latitude(6000) longitude(6000)]
+plot_arrow_geoplot(pointa,pointb,'color','r',"LineWidth",3)
+hold on 
 
 geoplot(latitude,longitude,"k-","LineWidth",2,"DisplayName","Bus route")
 hold on 
