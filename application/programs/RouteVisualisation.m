@@ -2,9 +2,15 @@ clear all; close all; clc
 
 disp(pwd)
 
-scriptDir = fileparts(mfilename('fullpath'));
-xlsxFile  = fullfile(scriptDir, '..', 'data', 'data_project_05.xlsx');
-matFile   = fullfile(scriptDir, '..', 'data', 'data_project_05.mat');
+scriptDir  = fileparts(mfilename('fullpath'));
+dataFolder = fullfile(scriptDir, '..', 'data');
+
+if ~isfolder(dataFolder)                  % catches the Temp\Editor_... path
+    dataFolder = fullfile('..', 'data');
+end
+
+matFile  = fullfile(dataFolder, 'data_project_05.mat');
+xlsxFile = fullfile(dataFolder, 'data_project_05.xlsx');
 
 
 if isfile(matFile)
@@ -103,8 +109,9 @@ geoplot([begin_point(1) end_point(1)],[begin_point(2) end_point(2)],... % line
 
 end
 
-pointa = 
-plot_arrow_geoplot()
+pointa = [latitude(1) longitude(1)]
+pointb = [latitude(600) longitude(600)]
+plot_arrow_geoplot(pointa,pointb,'color','k')
 
 
 geoplot(latitude,longitude,"k-","LineWidth",2,"DisplayName","Bus route")
