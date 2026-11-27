@@ -30,12 +30,25 @@ In any given folder, place everything as follows (mind the (alphabetical) order)
     - Group Product
     - data/
 
-      - Second or Third party data and research papers
+      - busstops.txt
+        - Bus stop data grabbed from an API
+      - busstopsimple.xlsx
+        - A cleaned version of busstops.txt
+      - Citea SLFA - 181 Electric specs.clsx
+        - Bus specs of our bus model.
+      - data_project_05.mat
+        - A preloaded matlab version for fast imports.
+      - data_project_05.xlsx
+        - Main bus data per second.[s]()
     - programs/
 
       - Code
       - busstopfinder.m
         - A program that finds the bus stops and identifies bus behavoir around it.
+      - busstoptxttoxlsx.py
+        - A cleaner tool that transforms raw API bus stop data to a smaller, more managable xlsx file.
+      - RouteVisualisation.m
+        - The main visualisor for bus the bus route.
     - reports/
 
       - Results and deliverables
