@@ -2,6 +2,7 @@ clear all; close all; clc
 
 disp(pwd)
 
+%Load bus data
 scriptDir  = fileparts(mfilename('fullpath'));
 dataFolder = fullfile(scriptDir, '..', 'data');
 
@@ -11,7 +12,6 @@ end
 
 matFile  = fullfile(dataFolder, 'data_project_05.mat');
 xlsxFile = fullfile(dataFolder, 'data_project_05.xlsx');
-
 
 if isfile(matFile)
     load(matFile,"data"); % load the matfile into a variable called data
@@ -46,6 +46,26 @@ for i = 1:numel(isStopped)
     count = 0;
     end
 end
+
+scriptDir  = fileparts(mfilename('fullpath'));
+dataFolder = fullfile(scriptDir, '..', 'data');
+
+if ~isfolder(dataFolder)                  % catches the Temp\Editor_... path
+    dataFolder = fullfile('..', 'data');
+end
+
+matFile  = fullfile(dataFolder, 'busstopssimple.mat');
+xlsxFile = fullfile(dataFolder, 'busstopssimple.xlsx');
+
+if isfile(matFile)
+    load(matFile,"data"); % load the matfile into a variable called data
+else
+    data = readtable(xlsxFile);
+    save(matFile, "data"); % cache if we don't have the matfile
+end 
+
+stopLatitude = data.stop_lat;
+stopLongitude = data.stop_lon;
 
 arrowLocations = [];
 arrowStep = 600;
@@ -115,7 +135,8 @@ plot_arrow_geoplot(pointa,pointb,'color','r',"LineWidth",3)
 hold on 
 geoplot(latitude,longitude,"k-","LineWidth",2,"DisplayName","Bus route")
 hold on 
-geoscatter(stopLat,stopLon,"filled","red")
+%geoscatter(stopLat,stopLon,"filled","red")
+geoscatter(stopLatitude,stopLongitude,"*","red")
 geobasemap streets
 title("My data points")
 legend
