@@ -2,11 +2,10 @@
 
 > Casper
 
-- Create a bus stop mapping, including:
-  - When the bus is at the stop
-  - If the bus stopped at the stop
-  - If a bus stop is due to traffic or a planned stop
-  - If more people entered the bus than left the bus.
+- Create a bus stop mapping, including: v/
+  - When the bus is at the stop x
+  - If the bus stopped at the stop x
+  - If a bus stop is due to traffic or a planned stop x
 - Reorganize and update file structure with fitting names and camel case.
 
 > Ginas

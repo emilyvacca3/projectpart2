@@ -10,8 +10,8 @@ busstops = busstops.drop_duplicates(
 busstops = pd.concat([nonparent, busstops], axis=0, join='outer', ignore_index=True)
 
 busstops = busstops.loc[(busstops['stop_lat'] > 51.4) &
-             (busstops['stop_lat'] < 51.6) &
-             (busstops['stop_lon'] > 5.3) &
+             (busstops['stop_lat'] < 51.52) &
+             (busstops['stop_lon'] > 5.35) &
              (busstops['stop_lon'] < 5.6)
              ].drop(columns=['wheelchair_boarding',
                              'stop_timezone',

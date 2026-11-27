@@ -2,7 +2,17 @@ clear all; close all; clc
 
 disp(pwd)
 
-%Load bus data
+gendetailedmap = false %do not set to true. Your pc will run forever.
+
+function importCache(filename, variableName, fileExtension, refreshFiles)
+
+arguments
+    filename
+    variableName
+    fileExtension = ".xlsx"
+    refreshFiles = false
+end
+
 scriptDir  = fileparts(mfilename('fullpath'));
 dataFolder = fullfile(scriptDir, '..', 'data');
 
@@ -10,20 +20,35 @@ if ~isfolder(dataFolder)                  % catches the Temp\Editor_... path
     dataFolder = fullfile('..', 'data');
 end
 
-matFile  = fullfile(dataFolder, 'data_project_05.mat');
-xlsxFile = fullfile(dataFolder, 'data_project_05.xlsx');
+matFile  = fullfile(dataFolder, filename + ".mat");
+xlsxFile = fullfile(dataFolder, filename + fileExtension);
 
-if isfile(matFile)
-    load(matFile,"data"); % load the matfile into a variable called data
+if isfile(matFile) && ~refreshFiles
+    data = load(matFile, variableName);
+    assignin("base", variableName, data.(variableName))
 else
-    data = readtable(xlsxFile);
-    save(matFile, "data"); % cache if we don't have the matfile
-end 
+    val = readtable(xlsxFile);
+    assignin('base', variableName, val);
 
+    S.(variableName) = val;
+    save(matFile, '-struct', 'S');
+end 
+end
+
+
+importCache("data_project_05", "data")
 latitude = data.gps_0;
 longitude = data.gps_1;
 speed = data.WheelBasedVehicleSpeed; % speed in m/s
 totalDist = data.HighResolutionTotalVehicleDistance; % distance in m (?)
+
+importCache("busstopssimple", "stops");
+stopLatitude = stops.stop_lat;
+stopLongitude = stops.stop_lon;
+
+importCache('busspecs', "busspecs");
+buslength = busspecs.value(1);
+
 
 isStopped = abs(speed) < 0.2; % change based on error of speed 
 % this gives a list of all rows that either are false or true based on
@@ -34,6 +59,9 @@ count = 0;
 stopLat = [];
 stopLon = [];
 
+%I want to check which bus stops the bus runs by. 
+% I saw that the bus does not stop at every bus stop. 
+% Do we do this per stopped bus stop + manual?
 for i = 1:numel(isStopped)
     if isStopped(i)
         count = count + 1; % if it's true (speed is low enough), increase seconds being still by 1
@@ -47,25 +75,21 @@ for i = 1:numel(isStopped)
     end
 end
 
-scriptDir  = fileparts(mfilename('fullpath'));
-dataFolder = fullfile(scriptDir, '..', 'data');
+onRouteStopsLat = [];
+onRouteStopsLon = [];
 
-if ~isfolder(dataFolder)                  % catches the Temp\Editor_... path
-    dataFolder = fullfile('..', 'data');
+if gendetailedmap;
+    for i = 1:3:numel(isStopped);
+        for j = 1:numel(stopLatitude);
+            if 1000*deg2km(distance(stopLatitude(j), stopLongitude(j), latitude(i), longitude(i)), "earth") < 6
+                onRouteStopsLat(end+1) = stopLatitude(j);
+                onRouteStopsLon(end+1) = stopLongitude(j);
+            end
+        end
+    end
 end
 
-matFile  = fullfile(dataFolder, 'busstopssimple.mat');
-xlsxFile = fullfile(dataFolder, 'busstopssimple.xlsx');
-
-if isfile(matFile)
-    load(matFile,"data"); % load the matfile into a variable called data
-else
-    data = readtable(xlsxFile);
-    save(matFile, "data"); % cache if we don't have the matfile
-end 
-
-stopLatitude = data.stop_lat;
-stopLongitude = data.stop_lon;
+display(onRouteStopsLon)
 
 arrowLocations = [];
 arrowStep = 600;
@@ -135,8 +159,8 @@ plot_arrow_geoplot(pointa,pointb,'color','r',"LineWidth",3)
 hold on 
 geoplot(latitude,longitude,"k-","LineWidth",2,"DisplayName","Bus route")
 hold on 
-%geoscatter(stopLat,stopLon,"filled","red")
-geoscatter(stopLatitude,stopLongitude,"*","red")
+geoscatter(stopLat,stopLon,"filled","red")
+geoscatter(stopLatitude,stopLongitude,"*","green")
 geobasemap streets
 title("My data points")
 legend
